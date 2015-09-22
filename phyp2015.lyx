@@ -1,0 +1,3123 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass amsbook
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing double
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Introduction à la théorie et l'approximation des sytèmes hyperboliques
+\end_layout
+
+\begin_layout Author
+Philippe Helluy
+\end_layout
+
+\begin_layout Chapter
+Généralités
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Dans ce cours, nous nous intéressons aux solutions 
+\begin_inset Formula $w(x,t)$
+\end_inset
+
+ du système d'équations aux dérivées partielles
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}w+A^{k}\partial_{k}w=0.\label{eq:syst-hyp}
+\end{equation}
+
+\end_inset
+
+Souvent, le vecteur 
+\begin_inset Formula $w$
+\end_inset
+
+ est appelé vecteur des variables conservatives.
+ Nous utilisons les notations suivantes:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x=(x^{1}\ldots x^{d})$
+\end_inset
+
+ est un point d'un ouvert 
+\begin_inset Formula $\Omega\subset\mathbb{R}^{d}$
+\end_inset
+
+ (en pratique 
+\begin_inset Formula $d=1,2$
+\end_inset
+
+ ou 
+\begin_inset Formula $3$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $t$
+\end_inset
+
+ représente le temps, 
+\begin_inset Formula $t\in[0,T]$
+\end_inset
+
+, 
+\begin_inset Formula $T>0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\partial_{t}=\frac{\partial}{\partial t}$
+\end_inset
+
+ et 
+\begin_inset Formula $\partial_{k}=\frac{\partial}{\partial x_{k}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Pour tout 
+\begin_inset Formula $(x,t)$
+\end_inset
+
+ 
+\begin_inset Formula $w(x,t)$
+\end_inset
+
+ est un vecteur de 
+\begin_inset Formula $\mathbb{R}^{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Les 
+\begin_inset Formula $A^{k}$
+\end_inset
+
+ sont des matrices réelles 
+\begin_inset Formula $m\times m$
+\end_inset
+
+ pour 
+\begin_inset Formula $k=1\ldots d$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Nous utilisons la convention de somme sur les indices répétés:
+\begin_inset Formula 
+\[
+A^{k}\partial_{k}w\text{ veut dire }\sum_{k}A^{k}\partial_{k}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En général, il faut adjoindre à (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+) une condition initiale
+\begin_inset Formula 
+\begin{equation}
+w(x,0)=w_{0}(x).\label{eq:condini}
+\end{equation}
+
+\end_inset
+
+Si la condition initiale est très régulière il faut comprendre que 
+\begin_inset Formula $w$
+\end_inset
+
+ est une solution au sens classique, c'est à dire que l'on cherche des solutions
+ régulières, donc dérivables, de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:condini"
+
+\end_inset
+
+).
+ Lorsque la condition initiale est moins régulière, par exemple seulement
+ dans 
+\begin_inset Formula $L^{2}(\Omega)$
+\end_inset
+
+, il existe plusieurs façons de définir les solutions.
+ Une possibilité est d'abord de traiter le cas de conditions initiales régulière
+s dans un sous-espace dense de 
+\begin_inset Formula $L^{2}$
+\end_inset
+
+, de construire une solution 
+\begin_inset Formula $w$
+\end_inset
+
+, de démontrer un résultat de continuité de 
+\begin_inset Formula $w$
+\end_inset
+
+ par rapport à 
+\begin_inset Formula $w_{0}$
+\end_inset
+
+ pour la norme 
+\begin_inset Formula $L^{2}$
+\end_inset
+
+ puis de prolonger par continuité l'opérateur linéaire ainsi construit à
+ 
+\begin_inset Formula $L^{2}$
+\end_inset
+
+ tout entier.
+\end_layout
+
+\begin_layout Standard
+En général, il faut aussi ajouter des conditions aux limites sur 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ le bord de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Ce point sera abordé au Chapitre 2.
+ Ici, nous nous contentons d'étudier le cas 
+\begin_inset Formula $\Omega=\mathbb{R}^{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Pour que le problème (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:condini"
+
+\end_inset
+
+) soit bien posé, il faut satisfaire la condition suivante:
+\end_layout
+
+\begin_layout Definition
+Le système (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+) est dit hyperbolique ssi pour tout vecteur 
+\begin_inset Formula $n=(n_{1}\ldots n_{d})$
+\end_inset
+
+ de 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+, la matrice 
+\begin_inset Formula $A(n)=A^{k}n_{k}$
+\end_inset
+
+ est diagonalisable avec des valeurs propres réelles.
+\end_layout
+
+\begin_layout Definition
+Cette notion est importante à cause du résultat suivant.
+\end_layout
+
+\begin_layout Theorem
+Si le système (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+) est hyperbolique et si 
+\begin_inset Formula $\Omega=\mathbb{R}^{d}$
+\end_inset
+
+, alors le problème d'évolution (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:condini"
+
+\end_inset
+
+) admet une unique solution 
+\begin_inset Formula $w\in C([0,T],L^{2}(\Omega))$
+\end_inset
+
+ et il existe une constante 
+\begin_inset Formula $C\geq0$
+\end_inset
+
+ telle que pour toute condition initiale 
+\begin_inset Formula $w_{0}\in L^{2}(\Omega)$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left\Vert w(\cdot,t)\right\Vert \leq C\left\Vert w_{0}(\cdot)\right\Vert ,
+\]
+
+\end_inset
+
+où 
+\begin_inset Formula $\left\Vert \cdot\right\Vert $
+\end_inset
+
+ désigne la norme sur 
+\begin_inset Formula $L^{2}(\Omega)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\Vert w(\cdot)\right\Vert :=\left(\int_{\Omega}w(x)\cdot w(x)dx\right)^{1/2}.
+\]
+
+\end_inset
+
+Par ailleurs, si le système n'est pas hyperbolique, alors pour toute constante
+ 
+\begin_inset Formula $C>0$
+\end_inset
+
+ et tout temps 
+\begin_inset Formula $t$
+\end_inset
+
+ il existe une condition initiale 
+\begin_inset Formula $w_{0}$
+\end_inset
+
+ et une solution 
+\begin_inset Formula $w$
+\end_inset
+
+ du problème d'évolution telle que
+\begin_inset Formula 
+\[
+\left\Vert w(\cdot,t)\right\Vert \geq C\left\Vert w_{0}(\cdot)\right\Vert ,
+\]
+
+\end_inset
+
+en d'autres termes, le problème d'évolution est instable.
+\end_layout
+
+\begin_layout Exercise
+Démontrer ce théorème (utiliser Fourier)
+\end_layout
+
+\begin_layout Remark
+Lorsque 
+\begin_inset Formula $m=1,$
+\end_inset
+
+ le système est réduit à une équation scalaire.
+ Il est donc évidemment hyperbolique.
+ Lorsque les matrices 
+\begin_inset Formula $A^{k}$
+\end_inset
+
+ sont symétriques, alors le système est automatiquement hyperbolique, car
+ une matrice symétrique est toujours diagonalisable avec des valeurs propres
+ réelles.
+ Dans ce cas il est aussi appelé système de Friedrichs.
+\end_layout
+
+\begin_layout Standard
+Le cas plus général des systèmes non-linéaires sera abordé en seconde partie.
+ Nous pouvons cependant déjà donner quelques définitions.
+ Un système non-linéaire s'écrit 
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}w+\partial_{k}f^{k}(w)=0,\label{eq:conslaw}
+\end{equation}
+
+\end_inset
+
+où cette fois-ci les 
+\begin_inset Formula $f^{k}$
+\end_inset
+
+ sont des fonctions, en général non-linéaires, de 
+\begin_inset Formula $\mathbb{R}^{m}$
+\end_inset
+
+ dans 
+\begin_inset Formula $\mathbb{R}^{m}.$
+\end_inset
+
+ Nous introduisons la fonction flux du système non-linéaire
+\begin_inset Formula 
+\[
+f(w,n)=n_{k}f^{k}(w).
+\]
+
+\end_inset
+
+La jacobienne du flux est notée
+\begin_inset Formula 
+\[
+A(w,n)=D_{w}f(w,n)=A^{k}(w)n_{k},\quad\text{ avec }A^{k}(w)=D_{w}f^{k}(w).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Le système non-linéaire est dit hyperbolique ssi pour tout vecteur de variables
+ conservatives 
+\begin_inset Formula $w$
+\end_inset
+
+ et pour toute direction 
+\begin_inset Formula $n$
+\end_inset
+
+ de 
+\begin_inset Formula $\mathbb{R^{d}}$
+\end_inset
+
+ la jacobienne du flux 
+\begin_inset Formula $A(w,n)$
+\end_inset
+
+ est diagonalisable avec des valeurs propres réelles.
+ 
+\end_layout
+
+\begin_layout Standard
+Il s'agit bien d'une généralisation de la notion de système hyperbolique
+ linéaire.
+ En effet si les fonctions 
+\begin_inset Formula $f^{k}$
+\end_inset
+
+sont linéaires alors 
+\begin_inset Formula $A^{k}=D_{w}f^{k}(w)$
+\end_inset
+
+ sont bien des matrices constantes.
+ Par ailleurs, un système non-linéaire est hyperbolique lorsque la linéarisation
+ de ce système autour d'un état constant 
+\begin_inset Formula $\overline{w}$
+\end_inset
+
+ est un système hyperbolique linéaire.
+\end_layout
+
+\begin_layout Exercise
+Rendre la remarque précédente rigoureuse !
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Soit 
+\begin_inset Formula $w$
+\end_inset
+
+ une solution du problème d'évolution (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:condini"
+
+\end_inset
+
+) avec 
+\begin_inset Formula $\Omega=\mathbb{R^{d}}$
+\end_inset
+
+.
+ Montrer que formellement 
+\begin_inset Formula 
+\begin{equation}
+\int_{\Omega}w=\int_{\Omega}w_{0}.\label{eq:conservation}
+\end{equation}
+
+\end_inset
+
+Déterminer également les conditions qui rendraient ce résultat rigoureux.
+  La propriété (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:conservation"
+
+\end_inset
+
+) justifie que le système (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:conslaw"
+
+\end_inset
+
+) soit aussi appelé système de lois de conservation et que 
+\begin_inset Formula $w$
+\end_inset
+
+ soit appelé vecteur des variables conservatives.
+\end_layout
+
+\begin_layout Section
+Exemples
+\end_layout
+
+\begin_layout Standard
+Lorsque 
+\begin_inset Formula $m=1$
+\end_inset
+
+ le système hyperbolique linéaire (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst-hyp"
+
+\end_inset
+
+) est une équation de transport à la vitesse 
+\begin_inset Formula $a=(A^{1}\ldots A^{d})$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{t}w+a\cdot\nabla_{x}w=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Résoudre l'équation de transport.
+\end_layout
+
+\begin_layout Standard
+Voici d'autres exemples d'équations hyperboliques à traiter en exercice.
+\end_layout
+
+\begin_layout Exercise
+\begin_inset CommandInset label
+LatexCommand label
+name "exer:eq-onde"
+
+\end_inset
+
+On suppose 
+\begin_inset Formula $d=2$
+\end_inset
+
+.
+ En acoustique les inconnues sont la pression 
+\begin_inset Formula $p(x,y,t)$
+\end_inset
+
+ et le déplacement 
+\begin_inset Formula $u(x,y,t)=(u^{1}(x,y,t),u^{2}(x,y,t))$
+\end_inset
+
+.
+ Les équations sont
+\begin_inset Formula 
+\begin{eqnarray*}
+\partial_{t}p+c\nabla\cdot u & = & 0,\\
+\partial_{t}u+c\nabla p & = & 0.
+\end{eqnarray*}
+
+\end_inset
+
+Montrer que ce système est hyperbolique.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Lire sur Wikipédia l'article consacré aux équations de Maxwell.
+ On appelle système de Maxwell le système constitué des équations de Maxwell-Far
+aday et de Maxwell-Ampère.
+ Montrer que c'est un système hyperbolique.
+ Traiter les cas 
+\begin_inset Formula $d=3$
+\end_inset
+
+, 
+\begin_inset Formula $d=2$
+\end_inset
+
+ (équations dites 
+\begin_inset Quotes fld
+\end_inset
+
+transverse électriques
+\begin_inset Quotes frd
+\end_inset
+
+ (mode TE) ou 
+\begin_inset Quotes fld
+\end_inset
+
+transverse magnétique
+\begin_inset Quotes frd
+\end_inset
+
+ (mode TM)).
+ Traiter aussi le cas 
+\begin_inset Formula $d=1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Lire sur Wikipédia l'article consacré aux équations de Barré de Saint-Venant.
+ Montrer que ces équations constituent un système hyperbolique non-linéaire.
+ Traiter les cas 
+\begin_inset Formula $d=1$
+\end_inset
+
+ et 
+\begin_inset Formula $d=2.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Trouver sur internet la formulation des équations d'Euler pour un gaz parfait
+ compressible.
+ Montrer qu'il s'agit d'un système hyperbolique non-linéaire.
+ Traiter les cas 
+\begin_inset Formula $d=1$
+\end_inset
+
+ et 
+\begin_inset Formula $d=2.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problème de Riemann
+\end_layout
+
+\begin_layout Standard
+Soit un système hyperbolique linéaire de solution 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ et soit un vecteur unitaire 
+\begin_inset Formula $n$
+\end_inset
+
+ dans 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+: 
+\begin_inset Formula $\left|n\right|=\sqrt{n_{1}^{2}+\cdots+n_{d}^{2}}=1$
+\end_inset
+
+.
+ Nous allons chercher des solutions 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ qui ne varient que selon la direction 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Nous posons donc 
+\begin_inset Formula 
+\[
+\xi=n\cdot x
+\]
+
+\end_inset
+
+ et
+\begin_inset Formula 
+\[
+\tilde{w}(x,t)=w(\xi,t).
+\]
+
+\end_inset
+
+Alors 
+\begin_inset Formula $w$
+\end_inset
+
+ est solution du système hyperbolique monodimensionnel (
+\begin_inset Formula $d=1$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\partial_{t}w+A\partial_{\xi}w=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Conditions aux limites
+\end_layout
+
+\begin_layout Section
+Théorème de Hille-Yosida
+\end_layout
+
+\begin_layout Standard
+Le théorème de Hille-Yosida est un théorème abstrait de la théorie des opérateur
+s linéaires qui permet de démontrer l'existence et l'unicité de la solution
+ d'un problème d'évolution.
+ Nous donnons les notions minimales pour comprendre l'énoncé de ce théorème.
+ Pour plus de détails, nous renvoyons au livre de Brézis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brezis1983analyse"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nous considérons un espace de Hilbert 
+\begin_inset Formula $H$
+\end_inset
+
+ de produit scalaire 
+\begin_inset Formula $\left\langle \cdot,\cdot\right\rangle $
+\end_inset
+
+.
+ En général, 
+\begin_inset Formula $A$
+\end_inset
+
+ désignera un opérateur non-borné de 
+\begin_inset Formula $H$
+\end_inset
+
+ à domaine dense c'est à dire une application linéaire d'un sous-espace
+ vectoriel 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ de 
+\begin_inset Formula $H$
+\end_inset
+
+ à valeurs dans 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Le sous-espace vectoriel 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ est appelé domaine de 
+\begin_inset Formula $A.$
+\end_inset
+
+ Si 
+\begin_inset Formula $H$
+\end_inset
+
+ est un Hilbert de dimension infini, 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ n'est généralement pas fermé.
+ Nous supposons que le domaine de 
+\begin_inset Formula $A$
+\end_inset
+
+ est dense, c'est à dire que 
+\begin_inset Formula $\overline{D(A)}=H$
+\end_inset
+
+ pour la topologie forte de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ La topologie forte est la topologie associée à la norme du produit scalaire
+ de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Le graphe de 
+\begin_inset Formula $A$
+\end_inset
+
+, noté 
+\begin_inset Formula $G(A)$
+\end_inset
+
+ est l'ensemble
+\begin_inset Formula 
+\[
+G(A)=\left\{ (u,Au),u\in D(A)\right\} \subset H\times H.
+\]
+
+\end_inset
+
+En général, 
+\begin_inset Formula $\overline{G(A)}$
+\end_inset
+
+ n'est pas le graphe d'un opérateur univoque, c'est à dire que 
+\begin_inset Formula $(u,f_{1})\in\overline{G(A)}$
+\end_inset
+
+ et 
+\begin_inset Formula $(u,f_{2})\in\overline{G(A)}$
+\end_inset
+
+ n'implique pas forcément que 
+\begin_inset Formula $f_{1}=f_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Exercise
+Le vérifier sur un exemple...
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $\overline{G(A)}$
+\end_inset
+
+ est le graphe d'un opérateur univoque, nous dirons que 
+\begin_inset Formula $A$
+\end_inset
+
+ est un opérateur non-borné fermable.
+ Nous appellerons fermeture de 
+\begin_inset Formula $A$
+\end_inset
+
+ et nous noterons 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ l'opérateur tel que 
+\begin_inset Formula $G(\overline{A})=\overline{G(A)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Soit 
+\begin_inset Formula $H$
+\end_inset
+
+ un espace de Hilbert de produit scalaire 
+\begin_inset Formula $\left\langle \cdot,\cdot\right\rangle $
+\end_inset
+
+.
+ Soit 
+\begin_inset Formula $A$
+\end_inset
+
+ un opérateur linéaire de 
+\begin_inset Formula $D(A)$
+\end_inset
+
+, sous-espace vectoriel de 
+\begin_inset Formula $H$
+\end_inset
+
+, dans 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ est maximal-monotone ssi
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Pour tout 
+\begin_inset Formula $x$
+\end_inset
+
+ dans 
+\begin_inset Formula $D(A)$
+\end_inset
+
+, 
+\begin_inset Formula $\left\langle Ax,x\right\rangle \geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I+A$
+\end_inset
+
+ est surjectif de 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ sur 
+\begin_inset Formula $H.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Nous considérons alors le problème d'évolution abstrait d'inconnue 
+\begin_inset Formula $u(t)\in D(A)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+\partial_{t}u+Au & = & 0,\nonumber \\
+u(0) & = & u_{0}\in D(A).\label{eq:evo-abstrait}
+\end{eqnarray}
+
+\end_inset
+
+Le théorème de Hille-Yosida donne une condition pour que ce problème soit
+ bien posé.
+ Dans le cas qui nous intéresse, l'opérateur 
+\begin_inset Formula $A$
+\end_inset
+
+ sera formellement l'opérateur aux dérivées partielles en espace 
+\begin_inset Formula $A^{k}\partial_{k}$
+\end_inset
+
+ et son domaine 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ sera l'ensemble des 
+\begin_inset Formula $w$
+\end_inset
+
+ qui satisfont les conditions aux limites.
+\end_layout
+
+\begin_layout Theorem
+(Hille-Yosida) Si 
+\begin_inset Formula $A$
+\end_inset
+
+ est maximal monotone, alors le problème (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:evo-abstrait"
+
+\end_inset
+
+) admet une solution unique 
+\begin_inset Formula $u$
+\end_inset
+
+ dans 
+\begin_inset Formula $C^{1}([0,T],H)\cap C([0,T],D(A))$
+\end_inset
+
+ et pour tout 
+\begin_inset Formula $t$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\Vert u(t)\right\Vert \leq\left\Vert u_{0}\right\Vert ,\quad\left\Vert \partial_{t}u(t)\right\Vert =\left\Vert Au(t)\right\Vert \leq\left\Vert Au_{0}\right\Vert .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notons que dans ce théorème, 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ est muni de la norme dite du graphe
+\begin_inset Formula 
+\[
+\left\Vert u\right\Vert _{D(A)}=\left\Vert u\right\Vert _{H}+\left\Vert Au\right\Vert _{H}.
+\]
+
+\end_inset
+
+Remarquons aussi que l'application, notée 
+\begin_inset Formula $S^{t}$
+\end_inset
+
+ qui à 
+\begin_inset Formula $u_{0}$
+\end_inset
+
+ associe 
+\begin_inset Formula $u(t)$
+\end_inset
+
+ peut donc être prolongée par densité en un semi-groupe de contrations de
+ 
+\begin_inset Formula $H$
+\end_inset
+
+ dans 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Il est donc possible de définir des solutions du problème d'évolution lorsque
+ 
+\begin_inset Formula $u_{0}\in H$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Exercise
+Démontrer le théorème de Hille-Yosida lorsque 
+\begin_inset Formula $H$
+\end_inset
+
+ est un Hilbert de dimension finie.
+\end_layout
+
+\begin_layout Standard
+Nous allons maintenant introduire quelques outils qui permettront de démontrer
+ la surjectivité de 
+\begin_inset Formula $I+A$
+\end_inset
+
+.
+ Les démonstrations seront basées sur des techniques d'intégration par parties
+ et de passage à l'adjoint.
+\end_layout
+
+\begin_layout Definition
+Soit 
+\begin_inset Formula $A$
+\end_inset
+
+ un opérateur linéaire de 
+\begin_inset Formula $H$
+\end_inset
+
+ dans 
+\begin_inset Formula $H$
+\end_inset
+
+ de domaine 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ dense.
+ 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+ est un adjoint formel de 
+\begin_inset Formula $A$
+\end_inset
+
+ ssi 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+ est à domaine dense et
+\begin_inset Formula 
+\[
+\forall u\in D(A),\forall v\in D(A^{\#}),\quad\left\langle Au,v\right\rangle =\left\langle u,A^{\#}v\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ admet un adjoint formel 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+, montrer que 
+\begin_inset Formula $A$
+\end_inset
+
+ est fermable c'est à dire que la fermeture du graphe de 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $G(A)$
+\end_inset
+
+ dans 
+\begin_inset Formula $H\times H$
+\end_inset
+
+ définit un opérateur univoque.
+\end_layout
+
+\begin_layout Definition
+Soit 
+\begin_inset Formula $A$
+\end_inset
+
+ un opérateur de 
+\begin_inset Formula $H$
+\end_inset
+
+ dans 
+\begin_inset Formula $H$
+\end_inset
+
+ à domaine dense.
+ L'adjoint de 
+\begin_inset Formula $A$
+\end_inset
+
+ noté 
+\begin_inset Formula $A^{*}$
+\end_inset
+
+ est un opérateur de 
+\begin_inset Formula $H$
+\end_inset
+
+ dans 
+\begin_inset Formula $H$
+\end_inset
+
+ défini de la façon suivante:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $D(A^{*})=\left\{ v\in H,\exists C\geq0,\forall u\in D(A),\left|\left\langle Au,v\right\rangle \right|\leq C\left\Vert u\right\Vert \right\} $
+\end_inset
+
+.
+ En d'autres termes, 
+\begin_inset Formula $D(A^{*})$
+\end_inset
+
+ est l'ensemble des 
+\begin_inset Formula $v$
+\end_inset
+
+ dans 
+\begin_inset Formula $H$
+\end_inset
+
+ telle que la forme linéaire 
+\begin_inset Formula $u\mapsto\left\langle Au,v\right\rangle $
+\end_inset
+
+ est continue sur 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ pour la norme de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $v\in D(A^{*})$
+\end_inset
+
+ alors l'application qui à 
+\begin_inset Formula $u$
+\end_inset
+
+ associe 
+\begin_inset Formula $\left\langle Au,v\right\rangle $
+\end_inset
+
+ se prolonge (par densité de 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ dans 
+\begin_inset Formula $H$
+\end_inset
+
+) en une forme linéaire continue sur 
+\begin_inset Formula $H$
+\end_inset
+
+ c'est à dire un élément de 
+\begin_inset Formula $H'$
+\end_inset
+
+.
+ Comme 
+\begin_inset Formula $H$
+\end_inset
+
+ est un espace de Hilbert, par le théorème de représentation de Riesz, il
+ existe un unique 
+\begin_inset Formula $f\in H$
+\end_inset
+
+ tel que 
+\begin_inset Formula $\left\langle Au,v\right\rangle =\left\langle f,u\right\rangle $
+\end_inset
+
+.
+ Alors par définition 
+\begin_inset Formula $f=A^{*}v.$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+En général, 
+\begin_inset Formula $A^{*}\neq A^{\#}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Exercise
+Montrer que pour tout adjoint formel 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+, 
+\begin_inset Formula $G(A^{\#})\subset G(A^{*})$
+\end_inset
+
+ et que donc 
+\begin_inset Formula $D(A^{\#})\subset D(A^{*})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Soit 
+\begin_inset Formula $A$
+\end_inset
+
+ un opérateur fermable.
+ Soit 
+\begin_inset Formula $u$
+\end_inset
+
+ un élément de 
+\begin_inset Formula $H.$
+\end_inset
+
+ 
+\begin_inset Formula $u$
+\end_inset
+
+ est une solution forte de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ ssi 
+\begin_inset Formula $\overline{A}u=f.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Une solution forte 
+\begin_inset Formula $u$
+\end_inset
+
+ de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ est telle que 
+\begin_inset Formula $(u,f)\in\overline{G(A)}=G(\overline{A})$
+\end_inset
+
+ .
+ En d'autres termes, 
+\begin_inset Formula $u$
+\end_inset
+
+ est solution forte de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ ssi il existe une suite 
+\begin_inset Formula $\left(u_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ d'éléments de 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ telle que
+\begin_inset Formula 
+\[
+u_{n}\rightarrow u\text{ et }Au_{n}\rightarrow f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Soit 
+\begin_inset Formula $u$
+\end_inset
+
+ un élément de 
+\begin_inset Formula $H.$
+\end_inset
+
+ 
+\begin_inset Formula $u$
+\end_inset
+
+ est une solution faible de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ ssi 
+\begin_inset Formula $A$
+\end_inset
+
+ admet un adjoint formel 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+ et si pour tout 
+\begin_inset Formula $v\in D(A^{\#})$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\left\langle f,v\right\rangle =\left\langle u,A^{\#}v\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Montrer que si 
+\begin_inset Formula $A$
+\end_inset
+
+ admet un adjoint formel, alors toute solution forte de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ est aussi solution faible.
+\end_layout
+
+\begin_layout Proposition
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ et 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+ sont deux opérateurs à domaines denses, adjoints formels et si toute solution
+ faible de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ est aussi une solution forte, alors
+\begin_inset Formula 
+\[
+\overline{A}=A^{\#*}
+\]
+
+\end_inset
+
+et
+\begin_inset Formula 
+\[
+\overline{A^{\#}}=\overline{A}^{*}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Montrer l'égalité d'opérateurs revient à démontrer l'égalité des graphes.
+\begin_inset Newline newline
+\end_inset
+
+Montrons d'abord que 
+\begin_inset Formula $G(\overline{A})\subset G(A^{\#*})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+En effet, soit 
+\begin_inset Formula $(u,f)\in G(\overline{A})$
+\end_inset
+
+.
+ Alors 
+\begin_inset Formula $u$
+\end_inset
+
+ est solution forte de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+.
+ Il s'ensuit que 
+\begin_inset Formula $u$
+\end_inset
+
+ est aussi solution faible c'est à dire que pour tout 
+\begin_inset Formula $v\in D(A^{\#})$
+\end_inset
+
+ 
+\begin_inset Formula $\left\langle u,A^{\#}v\right\rangle =\left\langle f,v\right\rangle $
+\end_inset
+
+.
+ La forme linéaire 
+\begin_inset Formula $v\mapsto\left\langle u,A^{\#}v\right\rangle =\left\langle f,v\right\rangle $
+\end_inset
+
+ est donc continue, 
+\begin_inset Formula $u\in D(A^{\#*})$
+\end_inset
+
+ et 
+\begin_inset Formula $A^{\#*}u=f$
+\end_inset
+
+ donc 
+\begin_inset Formula $(u,f)\in G(A^{\#*})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Montrons que 
+\begin_inset Formula $G(A^{\#*})\subset G(\overline{A})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+En effet, soit 
+\begin_inset Formula $(u,f)\in G(A^{\#*})$
+\end_inset
+
+.
+ Alors la forme linéaire 
+\begin_inset Formula $v\in D(A^{\#})\mapsto\left\langle u,A^{\#}v\right\rangle =\left\langle f,v\right\rangle $
+\end_inset
+
+ est continue et 
+\begin_inset Formula $\left\langle A^{\#*}u,v\right\rangle =\left\langle f,v\right\rangle =\left\langle u,A^{\#}v\right\rangle $
+\end_inset
+
+.
+ Par conséquent, 
+\begin_inset Formula $u$
+\end_inset
+
+ est solution faible de 
+\begin_inset Formula $Au=f.$
+\end_inset
+
+ Comme toute solution faible est forte, 
+\begin_inset Formula $u$
+\end_inset
+
+ est aussi solution forte et donc 
+\begin_inset Formula $(u,f)\in G(\overline{A}).$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+La seconde égalité découle de résultats généraux sur les adjoints d'opérateurs
+ dans les espaces de Hilbert.
+ D'abord l'adjoint d'un opérateur fermable est égal à l'adjoint de sa fermeture
+ donc 
+\begin_inset Formula $\overline{A}=A^{\#*}=\overline{A^{\#}}^{*}$
+\end_inset
+
+.
+ D'autre part, l'adjoint de l'adjoint d'un opérateur fermé à domaine dense
+ est l'opérateur lui-même donc 
+\begin_inset Formula $\overline{A}^{*}=\overline{A^{\#}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proposition
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ est un opérateur à domaine dense fermable, alors 
+\begin_inset Formula $A^{*}=\overline{A}^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Comme d'habitude, nous procédons sur les graphes.
+ D'une part, 
+\begin_inset Formula $G(A^{*})\subset G(\overline{A}^{*})$
+\end_inset
+
+.
+ En effet, soit 
+\begin_inset Formula $(v,A^{*}v)\in G(A^{*})$
+\end_inset
+
+.
+ Alors la forme linéaire 
+\begin_inset Formula $u\mapsto\left\langle Au,v\right\rangle =\left\langle u,A^{*}v\right\rangle $
+\end_inset
+
+ est linéaire continue sur 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ et donc aussi sur 
+\begin_inset Formula $D(\overline{A})$
+\end_inset
+
+, en prolongeant par continuité, et donc 
+\begin_inset Formula $(v,A^{*}v)\in G(\overline{A}^{*})$
+\end_inset
+
+.
+ De même, 
+\begin_inset Formula $G(\overline{A}^{*})\subset G(A^{*})$
+\end_inset
+
+ car 
+\begin_inset Formula $D(A)\subset D(\overline{A}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Astarstar"
+
+\end_inset
+
+Soit 
+\begin_inset Formula $A$
+\end_inset
+
+ un opérateur fermé à domaine dense tel que 
+\begin_inset Formula $D(A^{*})$
+\end_inset
+
+ est dense.
+ Alors 
+\begin_inset Formula $A^{**}=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Voir 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brezis1983analyse"
+
+\end_inset
+
+ page 46.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Ce résultat est un peu plus subtil que les précédents.
+ Il repose sur des propriétés de la topologie faible des espaces de Hilbert.
+ Rappelons qu'une suite 
+\begin_inset Formula $\left(u_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ d'éléments de 
+\begin_inset Formula $H$
+\end_inset
+
+ converge faiblement vers 
+\begin_inset Formula $u$
+\end_inset
+
+ ssi pour tout 
+\begin_inset Formula $v\in H,$
+\end_inset
+
+ 
+\begin_inset Formula $\left\langle u_{n},v\right\rangle \rightarrow\left\langle u,v\right\rangle $
+\end_inset
+
+.
+ La convergence forte implique la convergence faible, mais la réciproque
+ est fausse.
+ Nous avons donc à notre disposition deux topologie sur 
+\begin_inset Formula $H$
+\end_inset
+
+ : la topologie forte associée à la convergence forte des suites, au sens
+ de la norme de 
+\begin_inset Formula $H$
+\end_inset
+
+, et la topologie faible associée à la convergence faible.
+ Considérons maintenant un ensemble 
+\begin_inset Formula $K\in H$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $K$
+\end_inset
+
+ est fermé pour la topologie faible, alors 
+\begin_inset Formula $K$
+\end_inset
+
+ est aussi fermé pour la topologie forte.
+ En général, la réciproque est fausse, si 
+\begin_inset Formula $K$
+\end_inset
+
+ est fermé pour la topologie forte il n'est pas forcément fermé pour la
+ topologie faible.
+ Un résultat fondamental de l'analyse fonctionnelle est le suivant:
+\end_layout
+
+\begin_layout Theorem
+Soit 
+\begin_inset Formula $K$
+\end_inset
+
+ un convexe fermé de 
+\begin_inset Formula $H$
+\end_inset
+
+ pour la topologie forte.
+ Alors 
+\begin_inset Formula $K$
+\end_inset
+
+ est fermé pour la topologie faible.
+\end_layout
+
+\begin_layout Plain Layout
+Utilisons ce théorème pour démontrer la proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Astarstar"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Soit 
+\begin_inset Formula $(u,Au)\in G(A)$
+\end_inset
+
+.
+ Pour tout 
+\begin_inset Formula $v\in D(A^{*})$
+\end_inset
+
+, on a 
+\begin_inset Formula $\left\langle Au,v\right\rangle =\left\langle u,A^{*}v\right\rangle $
+\end_inset
+
+.
+ Par conséquent, la forme linéaire 
+\begin_inset Formula $v\mapsto\left\langle u,A^{*}v\right\rangle $
+\end_inset
+
+ est continue et 
+\begin_inset Formula $Au=A^{**}u$
+\end_inset
+
+ et donc 
+\begin_inset Formula $(u,Au)\in G(A^{**})$
+\end_inset
+
+.
+ Réciproquement, soit 
+\begin_inset Formula $(u,A^{**}u)\in G(A^{**})$
+\end_inset
+
+.
+ Pour tout 
+\begin_inset Formula $v\in D(A^{*})$
+\end_inset
+
+ la forme linéaire 
+\begin_inset Formula $v\mapsto\left\langle u,A^{*}v\right\rangle =\left\langle A^{**}u,v\right\rangle $
+\end_inset
+
+ est continue.
+ Mais 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ est dense dans 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Il existe donc une suite 
+\begin_inset Formula $\left(u_{n}\right)$
+\end_inset
+
+ d'éléments de 
+\begin_inset Formula $D(A)$
+\end_inset
+
+ telle que 
+\begin_inset Formula $u_{n}\rightarrow u$
+\end_inset
+
+.
+ Nous avons alors d'après la définition de l'adjoint 
+\begin_inset Formula $A^{*}$
+\end_inset
+
+ que 
+\begin_inset Formula $\left\langle u_{n},A^{*}v\right\rangle =\left\langle Au_{n},v\right\rangle $
+\end_inset
+
+.
+ Il s'ensuit que 
+\begin_inset Formula $\left\langle Au_{n},v\right\rangle \rightarrow\left\langle A^{**}u,v\right\rangle $
+\end_inset
+
+.
+ Comme 
+\begin_inset Formula $D(A^{*})$
+\end_inset
+
+ est dense, nous en déduisons que 
+\begin_inset Formula $Au_{n}$
+\end_inset
+
+ tend vers 
+\begin_inset Formula $A^{**}u$
+\end_inset
+
+ pour la topologie faible.
+ ??? à vérifier...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:cns-surjectif"
+
+\end_inset
+
+Soit 
+\begin_inset Formula $A$
+\end_inset
+
+ un opérateur de 
+\begin_inset Formula $H$
+\end_inset
+
+ à domaine dense.
+ Les propriétés suivantes sont équivalentes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+ est surjectif
+\end_layout
+
+\begin_layout Enumerate
+Il existe une constante 
+\begin_inset Formula $C\geq0$
+\end_inset
+
+ telle que pour tout 
+\begin_inset Formula $v\in D(A^{*}),$
+\end_inset
+
+ 
+\begin_inset Formula $\left\Vert v\right\Vert \leq C\left\Vert A^{*}v\right\Vert .$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $Ker(A^{*})=\{0\}$
+\end_inset
+
+ et 
+\begin_inset Formula $Im(A^{*})$
+\end_inset
+
+ est fermé.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Ce lemme est une généralisation fondamentale d'un résultat bien connu d'algèbre
+ linéaire en dimension finie: pour montrer l'existence de la solution d'un
+ problème linéaire il suffit de démontrer l'unicité de la solution du problème
+ adjoint.
+ Pour la démonstration, nous renvoyons à 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brezis1983analyse"
+
+\end_inset
+
+ page 30.
+\end_layout
+
+\begin_layout Theorem
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ et 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+ sont adjoints formels monotones et si toute solution faible de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ est forte, alors 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ et 
+\begin_inset Formula $\overline{A^{\#}}$
+\end_inset
+
+ sont maximaux monotones.
+\end_layout
+
+\begin_layout Proof
+Pour tout 
+\begin_inset Formula $u\in D(A)$
+\end_inset
+
+, 
+\begin_inset Formula $\left\langle (I+A)u,u\right\rangle \geq u^{2}$
+\end_inset
+
+ car 
+\begin_inset Formula $A$
+\end_inset
+
+ est monotone.
+ Par densité, nous montrons aussi que pour tout 
+\begin_inset Formula $u\in D(\overline{A})$
+\end_inset
+
+, 
+\begin_inset Formula $\left\langle (I+\overline{A})u,u\right\rangle \geq u^{2}$
+\end_inset
+
+.
+ En appliquant l'inégalité de Cauchy-Schwarz nous obtenons que pour tout
+ 
+\begin_inset Formula $u\in D(\overline{A}),$
+\end_inset
+
+ 
+\begin_inset Formula $\left\Vert (I+\overline{A})u\right\Vert \geq\left\Vert u\right\Vert $
+\end_inset
+
+ .
+ De même pour tout 
+\begin_inset Formula $v\in D(\overline{A^{\#}})$
+\end_inset
+
+, 
+\begin_inset Formula $\left\Vert (I+\overline{A^{\#}})v\right\Vert \geq\left\Vert v\right\Vert $
+\end_inset
+
+.
+ Mais comme 
+\begin_inset Formula $\overline{A^{\#}}=\overline{A}^{*}$
+\end_inset
+
+, il s'ensuit que pour tout 
+\begin_inset Formula $v\in D(\overline{A}^{*})$
+\end_inset
+
+, 
+\begin_inset Formula $\left\Vert (I+\overline{A}^{*})v\right\Vert \geq\left\Vert v\right\Vert .$
+\end_inset
+
+ Donc, en appliquant le lemme 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cns-surjectif"
+
+\end_inset
+
+ 
+\begin_inset Formula $I+\overline{A}$
+\end_inset
+
+ et 
+\begin_inset Formula $I+\overline{A}^{*}$
+\end_inset
+
+ sont surjectifs.
+ Nous obtenons bien que 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ et 
+\begin_inset Formula $\overline{A^{\#}}$
+\end_inset
+
+ sont maximaux monotones.
+\end_layout
+
+\begin_layout Section
+Application au problème d'évolution
+\end_layout
+
+\begin_layout Standard
+Dans cette section nous supposons que 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ est un ouvert de bord 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ régulier.
+ Pour 
+\begin_inset Formula $x$
+\end_inset
+
+ un point du bord, nous définissons 
+\begin_inset Formula $V(x)$
+\end_inset
+
+ un espace vectoriel de dimension 
+\begin_inset Formula $q\leq m$
+\end_inset
+
+.
+ Les conditions aux limites en un point 
+\begin_inset Formula $x$
+\end_inset
+
+ du bord 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ de 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ serons de la forme
+\begin_inset Formula 
+\begin{equation}
+w(x,t)\in V(x).\label{eq:cond-lim}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nous considérons le problème d'évolution pour un système de Friedrichs
+\begin_inset Formula 
+\begin{eqnarray}
+\partial_{t}w+A^{k}\partial_{k}w & = & 0,\nonumber \\
+w(x,t) & \in & V(x),\quad x\in\partial\Omega,\label{eq:friedrichs}\\
+w(x,0) & = & w_{0}(x).\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Rappelons que dans un tel système, les matrices 
+\begin_inset Formula $A^{k}$
+\end_inset
+
+ sont symétriques et que donc le système est bien hyperbolique.
+ Nous choisissons 
+\begin_inset Formula $H=L^{2}(\Omega)$
+\end_inset
+
+.
+ Nous prenons 
+\begin_inset Formula 
+\[
+D(A)=\left\{ u\in C^{1}(\overline{\Omega}),\forall x\in\partial\Omega,u(x)\in V(x)\right\} 
+\]
+
+\end_inset
+
+ et si 
+\begin_inset Formula $u\in D(A),$
+\end_inset
+
+ alors 
+\begin_inset Formula $Au=A^{k}\partial_{k}u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Pour le problème adjoint, nous commençons par définir une condition aux
+ limites adjointe 
+\begin_inset Formula $V^{\#}(x)=\left(A^{k}n_{k}V(x)\right)^{\top}$
+\end_inset
+
+.
+ Nous prenons aussi 
+\begin_inset Formula $V\cap E_{-}=\left\{ 0\right\} $
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D(A^{\#})=\left\{ v\in C^{1}(\overline{\Omega}),\forall x\in\partial\Omega,v(x)\in V^{\#}(x)\right\} 
+\]
+
+\end_inset
+
+ et 
+\begin_inset Formula $A^{\#}v=-A^{k}\partial_{k}v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Exercise
+Montrer que 
+\begin_inset Formula $A$
+\end_inset
+
+ et 
+\begin_inset Formula $A^{\#}$
+\end_inset
+
+ sont adjoints formels.
+\end_layout
+
+\begin_layout Standard
+Le théorème suivant est assez technique (voir 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lax1960local"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rauch1985symmetric"
+
+\end_inset
+
+) mais fondamental.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:lax-philips-rauch"
+
+\end_inset
+
+(Lax-Philips-Rauch) Soit 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ un domaine de 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ de frontière 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ de classe 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+.
+ Pour 
+\begin_inset Formula $x\in\partial\Omega$
+\end_inset
+
+, notons 
+\begin_inset Formula $n(x)$
+\end_inset
+
+ le vecteur normal à
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ en 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Nous supposons que 
+\begin_inset Formula $x\mapsto V(x)$
+\end_inset
+
+ est une application Lipschitzienne par rapport à 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $\dim\ker A^{k}n_{k}(x)$
+\end_inset
+
+ est constant sur chaque composante connexe de 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ et si pour tout 
+\begin_inset Formula $x\in\partial\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $\ker A^{k}n_{k}(x)\subset V(x)$
+\end_inset
+
+ alors toute solution faible de 
+\begin_inset Formula $Au=f$
+\end_inset
+
+ est aussi une solution forte.
+\end_layout
+
+\begin_layout Standard
+Dans cet énoncé, remarquons que l'espace vectoriel 
+\begin_inset Formula $V(x)$
+\end_inset
+
+ peut être définie par une base: 
+\begin_inset Formula $V(x)=\text{vect}\left\{ b_{1}(x)\ldots b_{q}(x)\right\} $
+\end_inset
+
+.
+ Dire que 
+\begin_inset Formula $V(x)$
+\end_inset
+
+ est Lipschitzien par rapport à 
+\begin_inset Formula $x$
+\end_inset
+
+ veut dire que les applications 
+\begin_inset Formula $x\mapsto b_{r}(x)$
+\end_inset
+
+ sont Lipschitziennes.
+ L'espace 
+\begin_inset Formula $V(x)$
+\end_inset
+
+ peut aussi être défini au moyen du noyau d'une matrice 
+\begin_inset Formula $M(x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+w\in V(x)\Leftrightarrow M(x)w=0.
+\]
+
+\end_inset
+
+Dans ce cas, c'est 
+\begin_inset Formula $x\mapsto M(x)$
+\end_inset
+
+ qui est Lipschitzienne.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:max-pos"
+
+\end_inset
+
+L'espace vectoriel des conditions aux limites 
+\begin_inset Formula $V$
+\end_inset
+
+ est dit positif par rapport à 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ ssi
+\begin_inset Formula 
+\[
+\forall u\in V,\left\langle A^{k}n_{k}u,u\right\rangle \geq0.
+\]
+
+\end_inset
+
+Il est dit maximal positif si de plus la dimension de 
+\begin_inset Formula $V$
+\end_inset
+
+ est égale au nombre de valeurs propres 
+\begin_inset Formula $\geq0$
+\end_inset
+
+ de 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ en comptant leur multiplicité.
+\end_layout
+
+\begin_layout Standard
+Nous allons vérifier que la deuxième condition exprime qu'il n'existe pas
+ d'espace vectoriel contenant 
+\begin_inset Formula $V$
+\end_inset
+
+ et strictement plus grand que 
+\begin_inset Formula $V$
+\end_inset
+
+ vérifiant la condition 1.
+ D'où la notion de maximalité.
+ Nous allons aussi montrer que si 
+\begin_inset Formula $V$
+\end_inset
+
+ est maximal positif, c'est aussi le cas pour 
+\begin_inset Formula $V^{\#}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Comme 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ est une matrice symétrique, elle admet une base orthonormée de vecteurs
+ propres.
+\end_layout
+
+\begin_layout Standard
+Dans un premier temps, nous allons considérer le cas où 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ est inversible.
+ Nous supposons que les valeurs propres 
+\begin_inset Formula $(\lambda_{i})_{i=1\ldots m}$
+\end_inset
+
+ de 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ sont rangées de la façon suivante
+\begin_inset Formula 
+\[
+\lambda_{1}\geq\ldots\geq\lambda_{p}>0>\lambda_{p+1}\geq\ldots\geq\lambda_{m}.
+\]
+
+\end_inset
+
+Par conséquent, l'entier 
+\begin_inset Formula $p$
+\end_inset
+
+ est le nombre de valeurs propres positives de 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ en tenant compte de leurs multiplicité.
+ Nous notons 
+\begin_inset Formula $(r_{i})_{i=1\ldots m}$
+\end_inset
+
+ une base orthonormée de vecteurs propres correspondants.
+ La matrice 
+\begin_inset Formula $P=\left(r_{1}\ldots r_{m}\right)$
+\end_inset
+
+ est unitaire (
+\begin_inset Formula $P^{-1}=P^{T}$
+\end_inset
+
+) et
+\begin_inset Formula $V\cap E_{-}=\left\{ 0\right\} $
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D=P^{T}A^{k}n_{k}P=\left[\begin{array}{ccc}
+\lambda_{1}\\
+ & \ddots\\
+ &  & \lambda_{m}
+\end{array}\right].
+\]
+
+\end_inset
+
+Remarquons alors que dans la nouvelle base, le produit scalaire 
+\begin_inset Formula $\left\langle A^{k}n_{k}u,v\right\rangle $
+\end_inset
+
+ devient
+\begin_inset Formula 
+\[
+\left\langle Du',v'\right\rangle ,\quad u'=Pu,\quad v'=Pv.
+\]
+
+\end_inset
+
+Nous notons 
+\begin_inset Formula $E_{+}$
+\end_inset
+
+ l'espace vectoriel engendré par 
+\begin_inset Formula $\left\{ r_{1}\ldots r_{p}\right\} $
+\end_inset
+
+ et par 
+\begin_inset Formula $E_{-}$
+\end_inset
+
+ l'espace engendré par 
+\begin_inset Formula $\left\{ r_{p+1}\ldots r_{m}\right\} $
+\end_inset
+
+.
+ Par conséquent, 
+\begin_inset Formula $\dim E_{+}=p$
+\end_inset
+
+, 
+\begin_inset Formula $\dim E_{-}=m-p$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{R}^{m}=E_{+}\oplus E_{-}$
+\end_inset
+
+, 
+\begin_inset Formula $E_{+}\bot E_{-}$
+\end_inset
+
+et 
+\begin_inset Formula $A^{k}n_{k}E_{\pm}=E_{\pm}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Nous notons 
+\begin_inset Formula $\Pi_{+}$
+\end_inset
+
+ (respectivement 
+\begin_inset Formula $\Pi_{-}$
+\end_inset
+
+) la projection orthogonale sur l'espace vectoriel 
+\begin_inset Formula $E_{+}$
+\end_inset
+
+ (respectivement 
+\begin_inset Formula $E_{-}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Commençons par le
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:cond-dim"
+
+\end_inset
+
+Si 
+\begin_inset Formula $V$
+\end_inset
+
+ est un espace positif par rapport à 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ alors 
+\begin_inset Formula $V\cap E_{-}=\left\{ 0\right\} $
+\end_inset
+
+ et 
+\begin_inset Formula $q=\dim V\leq p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $V\cap E_{-}=\left\{ 0\right\} $
+\end_inset
+
+ découle du fait que pour tout 
+\begin_inset Formula $u\in E_{-}$
+\end_inset
+
+ non nul,
+\begin_inset Formula 
+\[
+\left\langle A^{k}n_{k}u,u\right\rangle \leq\max_{k=p+1\ldots m}\lambda_{k}\left\Vert u\right\Vert ^{2}<0.
+\]
+
+\end_inset
+
+Raisonnons par l'absurde et supposons que 
+\begin_inset Formula $\dim V=q>p$
+\end_inset
+
+.
+ Considérons une base 
+\begin_inset Formula $(b_{1}\ldots b_{q})$
+\end_inset
+
+ de 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Il existe des réels 
+\begin_inset Formula $\alpha_{1}\ldots\alpha_{q}$
+\end_inset
+
+ non tous nuls tels que la combinaison linéaire 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{q}\alpha_{i}\Pi_{+}b_{i}=0.
+\]
+
+\end_inset
+
+En effet, 
+\begin_inset Formula $\left\{ \Pi_{+}b_{1}\ldots\Pi_{+}b_{q}\right\} $
+\end_inset
+
+ est un ensemble de 
+\begin_inset Formula $q$
+\end_inset
+
+ vecteurs dans 
+\begin_inset Formula $E_{+}$
+\end_inset
+
+, espace de dimension 
+\begin_inset Formula $p<q$
+\end_inset
+
+.
+ Considérons alors le vecteur
+\begin_inset Formula 
+\[
+u=\sum_{i=1}^{q}\alpha_{i}b_{i}.
+\]
+
+\end_inset
+
+Par construction, 
+\begin_inset Formula $u\in V\cap E_{-}$
+\end_inset
+
+, donc 
+\begin_inset Formula $u=0.$
+\end_inset
+
+ Comme les 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+ sont des vecteurs linéairement indépendants cela implique que les 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ sont tous nuls ce qui conduit à une contradiction, donc 
+\begin_inset Formula $\dim V\leq p.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La condition aux limites 
+\begin_inset Formula $V$
+\end_inset
+
+ et la condition aux limites adjointe 
+\begin_inset Formula $V^{\#}$
+\end_inset
+
+ jouent des rôles symétriques.
+ Lorsque 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ est inversible, comme 
+\begin_inset Formula $V^{\#}=\left(A^{k}n_{k}V\right)^{T}$
+\end_inset
+
+, alors 
+\begin_inset Formula $\dim V^{\#}=m-\dim V$
+\end_inset
+
+.
+ Nous en déduisons le
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:cond-dim2"
+
+\end_inset
+
+Si 
+\begin_inset Formula $V^{\#}$
+\end_inset
+
+ est un espace positif par rapport à 
+\begin_inset Formula $-A^{k}n_{k}$
+\end_inset
+
+ alors 
+\begin_inset Formula $V^{\#}\cap E_{+}=\left\{ 0\right\} $
+\end_inset
+
+ et 
+\begin_inset Formula $\dim V^{\#}\leq m-p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Une conséquence intéressante des lemmes 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cond-dim"
+
+\end_inset
+
+ et 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cond-dim2"
+
+\end_inset
+
+ est que si les conditions aux limites 
+\begin_inset Formula $V$
+\end_inset
+
+ et 
+\begin_inset Formula $V^{\#}$
+\end_inset
+
+ sont positives alors elles sont toutes les deux aussi maximales puisque
+ 
+\begin_inset Formula $\dim V+\dim V^{\#}=m$
+\end_inset
+
+.
+ De ce qui précède nous pouvons déduire le
+\end_layout
+
+\begin_layout Lemma
+Si 
+\begin_inset Formula $V$
+\end_inset
+
+ est un espace maximal positif par rapport à 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ alors 
+\begin_inset Formula $V^{\#}$
+\end_inset
+
+ est aussi maximal positif par rapport à 
+\begin_inset Formula $-A^{k}n_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Supposons que 
+\begin_inset Formula $V$
+\end_inset
+
+ est maximal positif pour 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+.
+ Montrons alors que 
+\begin_inset Formula $V^{\#}$
+\end_inset
+
+ est aussi maximal positif pour 
+\begin_inset Formula $-A^{k}n_{k}$
+\end_inset
+
+.
+ Si ce n'était pas le cas, il existerait 
+\begin_inset Formula $v\in V^{\#}$
+\end_inset
+
+ tel que 
+\begin_inset Formula $\left\langle A^{k}n_{k}v,v\right\rangle >0.$
+\end_inset
+
+ 
+\begin_inset Formula $v$
+\end_inset
+
+ ne peut pas aussi appartenir à 
+\begin_inset Formula $V$
+\end_inset
+
+ car sinon nous aurions 
+\begin_inset Formula $\left\langle A^{k}n_{k}v,v\right\rangle =0$
+\end_inset
+
+.
+ Considérons l'espace vectoriel 
+\begin_inset Formula $U=\left\{ u+tv,u\in V,t\in\mathbb{R}\right\} $
+\end_inset
+
+.
+ 
+\begin_inset Formula $U$
+\end_inset
+
+ contient 
+\begin_inset Formula $V$
+\end_inset
+
+ et, puisque 
+\begin_inset Formula $v\notin V$
+\end_inset
+
+, 
+\begin_inset Formula $\dim U=1+\dim V=p+1$
+\end_inset
+
+.
+ Montrons que 
+\begin_inset Formula $U$
+\end_inset
+
+ est un espace positif.
+ Soit donc 
+\begin_inset Formula $w\in U$
+\end_inset
+
+,
+\begin_inset Formula $w=u+tv$
+\end_inset
+
+ avec 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $u\in V$
+\end_inset
+
+.
+ Alors
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle A^{k}n_{k}(u+tv),(u+tv)\right\rangle  & = & \left\langle A^{k}n_{k}u,u\right\rangle +2t\left\langle A^{k}n_{k}u,v\right\rangle +t^{2}\left\langle A^{k}n_{k}v,v\right\rangle \\
+ & = & \left\langle A^{k}n_{k}u,u\right\rangle +t^{2}\left\langle A^{k}n_{k}v,v\right\rangle \geq0,
+\end{eqnarray*}
+
+\end_inset
+
+donc 
+\begin_inset Formula $U$
+\end_inset
+
+ est bien un espace positif.
+ D'après le lemme 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:cond-dim"
+
+\end_inset
+
+, nous devrions alors avoir 
+\begin_inset Formula $\dim U\leq p$
+\end_inset
+
+.
+ C'est impossible puisque 
+\begin_inset Formula $\dim U=p+1$
+\end_inset
+
+.
+ Par conséquent, 
+\begin_inset Formula $V^{\#}$
+\end_inset
+
+ est bien positif pour 
+\begin_inset Formula $-A^{k}n_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Mais d'autre part, 
+\begin_inset Formula $\dim V^{\#}=m-\dim V=m-p$
+\end_inset
+
+ et donc 
+\begin_inset Formula $V^{\#}$
+\end_inset
+
+ est aussi maximal positif.
+ 
+\end_layout
+
+\begin_layout Standard
+Nous pouvons maintenant regrouper les résultats de cette section dans le
+ théorème suivant:
+\end_layout
+
+\begin_layout Theorem
+Supposons que la condition aux limites (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cond-lim"
+
+\end_inset
+
+) est maximale positive pour 
+\begin_inset Formula $A^{k}n_{k}$
+\end_inset
+
+ (voir définition (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:max-pos"
+
+\end_inset
+
+)).
+ Supposons aussi que les hypothèses du théorème 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:lax-philips-rauch"
+
+\end_inset
+
+ soient satisfaites.
+ Alors les opérateurs 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ et 
+\begin_inset Formula $\overline{A^{\#}}$
+\end_inset
+
+ sont maximaux monotones.
+ 
+\end_layout
+
+\begin_layout Standard
+Ce théorème assure que si les conditions aux limites sont maximales positives
+ alors les problèmes d'évolution
+\begin_inset Formula 
+\[
+\partial_{t}u+Au=0,\quad u(\cdot,0)=u_{0}(\cdot)
+\]
+
+\end_inset
+
+ et 
+\begin_inset Formula 
+\[
+\partial_{t}v+A^{\#}v=0\quad v(\cdot,0)=v_{0}(\cdot)
+\]
+
+\end_inset
+
+ sont bien posés.
+\end_layout
+
+\begin_layout Section
+Exemples
+\end_layout
+
+\begin_layout Exercise
+Trouver toutes les conditions maximales positives pour l'équation des ondes
+ (voir Exercice 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exer:eq-onde"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Trouver les conditions maximales positives pour les équations de Saint-Venant
+ linéarisées.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Trouver les conditions maximales positives pour les équations de Maxwell.
+\end_layout
+
+\begin_layout Chapter
+Approximation par la méthode de Galerkin-Discontinu
+\end_layout
+
+\begin_layout Section
+Généralités
+\end_layout
+
+\begin_layout Section
+Convergence de la méthode GD
+\end_layout
+
+\begin_layout Chapter
+Programmation efficace de la méthode Galerkin-Discontinu
+\end_layout
+
+\begin_layout Section
+Intégration numérique
+\end_layout
+
+\begin_layout Section
+Schéma temporel
+\end_layout
+
+\begin_layout Section
+Parallélisme local
+\end_layout
+
+\begin_layout Section
+Parallélisme global
+\end_layout
+
+\begin_layout Chapter
+Exemples d'applications
+\end_layout
+
+\begin_layout Section
+Maxwell
+\end_layout
+
+\begin_layout Section
+Saint-Venant
+\end_layout
+
+\begin_layout Section
+Transport
+\end_layout
+
+\begin_layout Section
+Modèles cinétiques
+\end_layout
+
+\begin_layout Part
+Systèmes non-linéaires (Bopeng Rao)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "phyp2015"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
