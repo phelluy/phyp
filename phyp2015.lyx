@@ -3059,6 +3059,63 @@ Approximation par la méthode de Galerkin-Discontinu
 Généralités
 \end_layout
 
+\begin_layout Standard
+Nous allons maintenant présenter une méthode d'approximation de type Galerkin-Di
+scontinu.
+ Il s'agit d'approcher les solutions de
+\begin_inset Formula 
+\[
+\partial_{t}w+Lw=0,\quad L=A^{k}\partial_{k},
+\]
+
+\end_inset
+
+avec des conditions aux limites maximales positives sur le bord de 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Nous avons démontré au chapitre précédent que la solution est naturellement
+ dans 
+\begin_inset Formula $C^{0}(\left[0,T\right],D(A))$
+\end_inset
+
+.
+ Pour pouvoir démontrer un résultat de convergence de la méthode, il sera
+ nécessaire de supposer une régularité plus élevée des solutions.
+ Cependant, dans de nombreux exemples utiles en pratique, les solutions
+ présentent des discontinuités stationnaires qui coïncident avec les discontinui
+tés de la conditions initiales.
+ Il faut donc définir des espaces fonctionnels qui tiennent compte de ces
+ discontinuités.
+\end_layout
+
+\begin_layout Standard
+Pour définir ces espaces, nous considérons donc des ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ réguliers, 
+\begin_inset Formula $i=1\ldots N$
+\end_inset
+
+ satisfaisant les propriétés suivantes
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\overline{\cup_{i}\Omega_{i}}=\overline{\Omega}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall i,j\quad i\neq j\Rightarrow\Omega_{i}\cap\Omega_{j}=\emptyset.$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Convergence de la méthode GD
 \end_layout
