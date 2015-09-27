@@ -815,8 +815,333 @@ Alors
 
 )
 \begin_inset Formula 
+\begin{equation}
+\partial_{t}w+A\partial_{\xi}w=0,\label{eq:syst1d}
+\end{equation}
+
+\end_inset
+
+où 
+\begin_inset Formula $A$
+\end_inset
+
+ est la matrice
+\begin_inset Formula 
 \[
-\partial_{t}w+A\partial_{\xi}w=0
+A=A^{k}n_{k}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le problème de Riemann consiste à résoudre le problème d'évolution monodimension
+nel (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:syst1d"
+
+\end_inset
+
+) lorsque la condition initiale est constituée de deux états constants séparés
+ par une discontinuité en 
+\begin_inset Formula $\xi=0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+w(\xi,0)=\left\{ \begin{array}{c}
+w_{L}\text{ si }\xi<0,\\
+w_{R}\text{ sinon.}
+\end{array}\right.
+\]
+
+\end_inset
+
+Supposons que les valeurs propres (réelles) de 
+\begin_inset Formula $A$
+\end_inset
+
+ sont classées dans l'ordre croissant
+\begin_inset Formula 
+\[
+\lambda_{1}\leq\lambda_{2}\ldots\leq\lambda_{m}
+\]
+
+\end_inset
+
+et notons 
+\begin_inset Formula $r_{1}\ldots r_{m}$
+\end_inset
+
+ les vecteurs propres correspondants.
+ Considérons la matrice dont les colonnes sont les vecteurs propres de 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+P=\left(r_{1}\dots r_{m}\right),\label{eq:matpassage}
+\end{equation}
+
+\end_inset
+
+alors
+\begin_inset Formula 
+\[
+D=\left(\begin{array}{ccc}
+\lambda_{1} &  & 0\\
+ & \ddots\\
+0 &  & \lambda_{m}
+\end{array}\right)=P^{-1}AP.
+\]
+
+\end_inset
+
+Le changement de vecteur inconnue
+\begin_inset Formula 
+\[
+w=Pz
+\]
+
+\end_inset
+
+montre que les composantes de 
+\begin_inset Formula $z$
+\end_inset
+
+ vérifient des équations de transport dont les vitesses sont les valeurs
+ propres de 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{t}z^{i}+\lambda_{i}\partial_{x}z^{i}=0.
+\]
+
+\end_inset
+
+Posons
+\begin_inset Formula 
+\[
+z_{L}=P^{-1}w_{L},\quad z_{R}=P^{-1}w_{R}.
+\]
+
+\end_inset
+
+Alors
+\begin_inset Formula 
+\[
+z^{i}(\xi,t)=\left\{ \begin{array}{c}
+z_{L}^{i}\text{ si }\xi/t<\lambda_{i},\\
+z_{R}^{i}\text{ sinon.}
+\end{array}\right.
+\]
+
+\end_inset
+
+Mais d'autre part,
+\begin_inset Formula 
+\[
+w=\sum_{i=1}^{m}z^{i}r_{i}
+\]
+
+\end_inset
+
+la solution du problème de Riemann est donc donnée par
+\begin_inset Formula 
+\[
+w(x,t)=\left\{ \begin{array}{ccc}
+w_{L} & \text{si} & \xi/t<\lambda_{1},\\
+\vdots\\
+\sum_{i=j}^{m}z_{L}^{i}r_{i}+\sum_{i=1}^{j-1}z_{R}^{i}r_{i} & \text{si} & \lambda_{j-1}<\xi/t<\lambda_{j},\\
+\vdots\\
+w_{R} & \text{si} & \xi/t>\lambda_{m}.
+\end{array}\right.
+\]
+
+\end_inset
+
+Dans le plan 
+\begin_inset Formula $(\xi,t$
+\end_inset
+
+) il s'agit d'un ensemble de 
+\begin_inset Formula $m+1$
+\end_inset
+
+ états constants, 
+\begin_inset Formula $w_{1}=w_{L},w_{1},w_{2},\ldots,w_{m+1}=w_{R}$
+\end_inset
+
+ séparés par des droites d'équations 
+\begin_inset Formula $\xi=\lambda_{i}t.$
+\end_inset
+
+ L'état constant 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ est défini par
+\begin_inset Formula 
+\begin{equation}
+w_{j}=\sum_{i=1}^{j-1}z_{R}^{i}r_{i}+\sum_{i=j}^{m}z_{L}^{i}r_{i}.\label{eq:wriem1}
+\end{equation}
+
+\end_inset
+
+En posant 
+\begin_inset Formula $\alpha=P^{-1}(w_{R}-w_{L})$
+\end_inset
+
+ les états 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ s'écrivent aussi de façon équivalente
+\begin_inset Formula 
+\begin{equation}
+w_{j}=w_{L}+\sum_{i=1}^{j-1}\alpha_{R}^{i}r_{i}=w_{R}-\sum_{i=j}^{m}\alpha_{L}^{i}r_{i}.\label{eq:wriem2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pour appliquer les formules (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:wriem1"
+
+\end_inset
+
+) ou (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:wriem2"
+
+\end_inset
+
+) il est nécessaire de calculer les valeurs propres et les vecteurs propres
+ de 
+\begin_inset Formula $A$
+\end_inset
+
+, puis de décomposer les états initiaux 
+\begin_inset Formula $w_{L}$
+\end_inset
+
+ et 
+\begin_inset Formula $w_{R}$
+\end_inset
+
+, ou l'écart 
+\begin_inset Formula $w_{R}-w_{L}$
+\end_inset
+
+, sur la base des vecteurs propres.
+ Nous allons proposer une autre technique de calcul de la solution du problème
+ de Riemann qui n'utilise que la connaissances des valeurs propres de 
+\begin_inset Formula $A.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Soit 
+\begin_inset Formula $A$
+\end_inset
+
+ une matrice 
+\begin_inset Formula $m\times m$
+\end_inset
+
+ possédant des valeurs propres réelles distinctes 
+\begin_inset Formula $\lambda_{1}<\ldots<\lambda_{m}$
+\end_inset
+
+ et soit 
+\begin_inset Formula $f$
+\end_inset
+
+ une application de 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ dans 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+.
+ Soit 
+\begin_inset Formula $Q$
+\end_inset
+
+ l'unique polynôme d'interpolation de 
+\begin_inset Formula $f$
+\end_inset
+
+ sur les valeurs propres de 
+\begin_inset Formula $A$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\deg Q\leq m,\quad\forall i=1\ldots m,\quad Q(\lambda_{i})=f(\lambda_{i}).
+\]
+
+\end_inset
+
+Alors nous notons 
+\begin_inset Formula $f(A)$
+\end_inset
+
+ le polynôme de matrice définie par
+\begin_inset Formula 
+\[
+f(A)=Q(A).
+\]
+
+\end_inset
+
+ Notons que pour calculer 
+\begin_inset Formula $Q$
+\end_inset
+
+ il suffit de connaître les valeurs propres de 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Si nous connaissons aussi une base de diagonalisation de 
+\begin_inset Formula $A$
+\end_inset
+
+ alors (voir (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:matpassage"
+
+\end_inset
+
+))
+\begin_inset Formula 
+\[
+f(A)=Q(A)=P^{-1}Q(PAP^{-1})P=P^{-1}Q(D)P=P^{-1}\left(\begin{array}{ccc}
+f(\lambda_{1}) &  & 0\\
+ & \ddots\\
+0 &  & f(\lambda_{m})
+\end{array}\right)P.
 \]
 
 \end_inset
