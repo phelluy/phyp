@@ -1149,6 +1149,66 @@ f(\lambda_{1}) &  & 0\\
 
 \end_layout
 
+\begin_layout Definition
+Considérons maintenant les fonctions 
+\begin_inset Formula $x\mapsto x^{+}=\max(x,0)$
+\end_inset
+
+ et 
+\begin_inset Formula $x\mapsto x^{-}=\min(x,0)$
+\end_inset
+
+.
+ Ces fonctions vérifient également 
+\begin_inset Formula $x=x^{+}+x^{-}$
+\end_inset
+
+ et 
+\begin_inset Formula $\left|x\right|=x^{+}-x^{-}$
+\end_inset
+
+.
+ Nous avons alors une autre représentation de la solution du problème de
+ Riemann:
+\end_layout
+
+\begin_layout Proposition
+Soit le problème de Riemann
+\begin_inset Formula 
+\begin{eqnarray*}
+\partial_{t}w+A\partial_{\xi}w & = & 0,\\
+w(\xi,0) & = & \left\{ \begin{array}{ccc}
+w_{L} & \text{si} & \xi<0,\\
+w_{R} & \text{si} & \xi>0.
+\end{array}\right.
+\end{eqnarray*}
+
+\end_inset
+
+La solution est donnée par
+\begin_inset Formula 
+\begin{eqnarray*}
+w(\xi,t) & = & \frac{1}{2}\left(w_{L}+w_{R}\right)-\frac{1}{2}\text{sgn}\left(A-\frac{\xi}{t}I\right)(w_{R}-w_{L}).
+\end{eqnarray*}
+
+\end_inset
+
+De plus
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(A-\frac{\xi}{t}I\right)w(\xi,t) & = & \frac{1}{2}\left(A-\frac{\xi}{t}I\right)\left(w_{L}+w_{R}\right)-\frac{1}{2}\left|A-\frac{\xi}{t}I\right|(w_{R}-w_{L})\\
+ & = & \left(A-\frac{\xi}{t}I\right)^{+}w_{L}+\left(A-\frac{\xi}{t}I\right)^{-}w_{R}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Démontrer cette proposition.
+\end_layout
+
 \begin_layout Chapter
 Conditions aux limites
 \end_layout
@@ -3389,9 +3449,9 @@ Nous allons maintenant présenter une méthode d'approximation de type Galerkin-
 scontinu.
  Il s'agit d'approcher les solutions de
 \begin_inset Formula 
-\[
-\partial_{t}w+Lw=0,\quad L=A^{k}\partial_{k},
-\]
+\begin{equation}
+\partial_{t}w+Lw=0,\quad L=A^{k}\partial_{k},\label{eq:systtoapprox}
+\end{equation}
 
 \end_inset
 
@@ -3436,6 +3496,350 @@ Pour définir ces espaces, nous considérons donc des ouverts
 
 \begin_layout Enumerate
 \begin_inset Formula $\forall i,j\quad i\neq j\Rightarrow\Omega_{i}\cap\Omega_{j}=\emptyset.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Soit 
+\begin_inset Formula $k$
+\end_inset
+
+ un entier 
+\begin_inset Formula $\geq1$
+\end_inset
+
+.
+ Nous définissons l'espace 
+\begin_inset Formula $E$
+\end_inset
+
+ des fonctions 
+\begin_inset Formula $w$
+\end_inset
+
+ de 
+\begin_inset Formula $H=\left(L^{2}(\Omega)\right)^{m}$
+\end_inset
+
+ telles que la restriction de 
+\begin_inset Formula $w$
+\end_inset
+
+ à chaque ouvert 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ est dans l'espace de Sobolev 
+\begin_inset Formula $\left(H^{k}(\Omega_{i})\right)^{m}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E=\left\{ w\in H,w\vert_{\Omega_{i}}\in H(\Omega_{i})^{m}\right\} .
+\]
+
+\end_inset
+
+L'espace 
+\begin_inset Formula $E$
+\end_inset
+
+ est muni de la norme
+\begin_inset Formula 
+\[
+\left\Vert w\right\Vert _{E}=\sum_{i}\left\Vert w\vert_{\Omega_{i}}\right\Vert _{H^{k}(\Omega_{i})^{m}}.
+\]
+
+\end_inset
+
+Pour construire la formulation Galerkin-Discontinu, nous allons supposer
+ que la solution faible 
+\begin_inset Formula $w$
+\end_inset
+
+ de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:systtoapprox"
+
+\end_inset
+
+) que nous cherchons à approcher satisfait 
+\begin_inset Formula 
+\[
+w\in C^{1}([0,T],E).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Par ailleurs, dire que 
+\begin_inset Formula $w$
+\end_inset
+
+ est solution faible de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:systtoapprox"
+
+\end_inset
+
+) implique que 
+\begin_inset Formula $w$
+\end_inset
+
+ est une solution de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:systtoapprox"
+
+\end_inset
+
+) au sens des distributions.
+ Par conséquent, dans chaque ouvert 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{t}w+Lw=0
+\]
+
+\end_inset
+
+ au sens de la dérivée usuelle des fonctions.
+ Puisque 
+\begin_inset Formula $w$
+\end_inset
+
+ est dans 
+\begin_inset Formula $C^{1}([0,T],E)$
+\end_inset
+
+, la trace de 
+\begin_inset Formula $w$
+\end_inset
+
+ sur 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ est définie (la trace d'une fonction de 
+\begin_inset Formula $H^{1}$
+\end_inset
+
+ est bien définie dans 
+\begin_inset Formula $H^{1/2}$
+\end_inset
+
+).
+ Par conséquent, au sens usuel, 
+\begin_inset Formula $w$
+\end_inset
+
+ vérifie
+\begin_inset Formula 
+\begin{equation}
+Mw=0\quad\text{sur }[0,T]\times\partial\Omega.\label{eq:cl-approx}
+\end{equation}
+
+\end_inset
+
+Le choix de l'espace 
+\begin_inset Formula $E$
+\end_inset
+
+ autorise 
+\begin_inset Formula $w$
+\end_inset
+
+ à présenter des discontinuités sur les bords des ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+.
+ Nous introduisons donc l'ensemble des discontinuités éventuelles de 
+\begin_inset Formula $w$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+D=\left(\cup_{i}\partial\Omega_{i}\right)\setminus\Omega.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D$
+\end_inset
+
+ est une surface que l'on suppose orientée par une normale unitaire 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Sur 
+\begin_inset Formula $D$
+\end_inset
+
+ nous indiçons par 
+\begin_inset Formula $"L"$
+\end_inset
+
+ le côté de 
+\begin_inset Formula $-n$
+\end_inset
+
+ et par 
+\begin_inset Formula $"R"$
+\end_inset
+
+ le côté de 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Nous utilisons la notation standard pour les discontinuités sur 
+\begin_inset Formula $D$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[w\right]:=w_{R}-w_{L}.
+\]
+
+\end_inset
+
+Le fait que 
+\begin_inset Formula $w$
+\end_inset
+
+ soit solution de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:systtoapprox"
+
+\end_inset
+
+) au sens des distributions implique que sur 
+\begin_inset Formula $D$
+\end_inset
+
+, w satisfait la condition de saut de Rankine-Hugoniot
+\begin_inset Formula 
+\begin{equation}
+\left[A^{k}n_{k}w\right]=0.\label{eq:rankine-hugoniot}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voir 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "schwartz1961methodes"
+
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $u$
+\end_inset
+
+ et 
+\begin_inset Formula $v$
+\end_inset
+
+ sont des éléments de 
+\begin_inset Formula $E$
+\end_inset
+
+, nous introduisons alors les notations suivantes
+\begin_inset Formula 
+\[
+\left\langle u,v\right\rangle :=\int_{\Omega}u\cdot v,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[u,v\right]=\int_{D}u\cdot v,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(u,v\right)=\int_{\partial\Omega}u\cdot v,
+\]
+
+\end_inset
+
+et, lorsque qu'il n'y a pas d'ambiguité, nous poserons aussi
+\begin_inset Formula 
+\[
+A^{k}n_{k}=A.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Puisque 
+\begin_inset Formula $w$
+\end_inset
+
+ vérifie (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:systtoapprox"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cl-approx"
+
+\end_inset
+
+) et (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rankine-hugoniot"
+
+\end_inset
+
+), cela implique que pour toute fonction test 
+\begin_inset Formula $\psi\in E$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\langle \partial_{t}w,\psi\right\rangle +\left\langle Lw,\psi\right\rangle +\left[A^{-}(w_{R}-w_{L}),\psi_{L}\right]+\left[A^{+}(w_{R}-w_{L}),\psi_{R}\right]+\left(Mw,\psi\right)=0.
+\]
+
 \end_inset
 
 
