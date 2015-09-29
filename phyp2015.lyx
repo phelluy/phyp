@@ -2597,11 +2597,7 @@ Pour le problème adjoint, nous commençons par définir une condition aux
 \end_inset
 
 .
- Nous prenons aussi 
-\begin_inset Formula $V\cap E_{-}=\left\{ 0\right\} $
-\end_inset
-
-
+ Nous prenons aussi
 \begin_inset Formula 
 \[
 D(A^{\#})=\left\{ v\in C^{1}(\overline{\Omega}),\forall x\in\partial\Omega,v(x)\in V^{\#}(x)\right\} 
@@ -2678,7 +2674,7 @@ name "thm:lax-philips-rauch"
 \begin_inset Formula $n(x)$
 \end_inset
 
- le vecteur normal à
+ le vecteur normal à 
 \begin_inset Formula $\partial\Omega$
 \end_inset
 
@@ -2879,7 +2875,7 @@ Par conséquent, l'entier
 \begin_inset Formula $P^{-1}=P^{T}$
 \end_inset
 
-) et
+) et 
 \begin_inset Formula $V\cap E_{-}=\left\{ 0\right\} $
 \end_inset
 
@@ -2940,7 +2936,7 @@ Nous notons
 \begin_inset Formula $E_{+}\bot E_{-}$
 \end_inset
 
-et 
+ et 
 \begin_inset Formula $A^{k}n_{k}E_{\pm}=E_{\pm}$
 \end_inset
 
@@ -3532,13 +3528,13 @@ Soit
 \end_inset
 
  est dans l'espace de Sobolev 
-\begin_inset Formula $\left(H^{k}(\Omega_{i})\right)^{m}$
+\begin_inset Formula $\left(H^{k+1}(\Omega_{i})\right)^{m}$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-E=\left\{ w\in H,w\vert_{\Omega_{i}}\in H(\Omega_{i})^{m}\right\} .
+E=\left\{ w\in H,w\vert_{\Omega_{i}}\in H^{k+1}(\Omega_{i})^{m}\right\} .
 \]
 
 \end_inset
@@ -3550,7 +3546,7 @@ L'espace
  est muni de la norme
 \begin_inset Formula 
 \[
-\left\Vert w\right\Vert _{E}=\sum_{i}\left\Vert w\vert_{\Omega_{i}}\right\Vert _{H^{k}(\Omega_{i})^{m}}.
+\left\Vert w\right\Vert _{E}=\sum_{i}\left\Vert w\vert_{\Omega_{i}}\right\Vert _{H^{k+1}(\Omega_{i})^{m}}.
 \]
 
 \end_inset
@@ -3672,7 +3668,7 @@ Le choix de l'espace
 
 \begin_inset Formula 
 \[
-D=\left(\cup_{i}\partial\Omega_{i}\right)\setminus\Omega.
+D=\left(\cup_{i}\partial\Omega_{i}\right)\setminus\partial\Omega.
 \]
 
 \end_inset
@@ -3737,7 +3733,11 @@ reference "eq:systtoapprox"
 \begin_inset Formula $D$
 \end_inset
 
-, w satisfait la condition de saut de Rankine-Hugoniot
+, 
+\begin_inset Formula $w$
+\end_inset
+
+ satisfait la condition de saut de Rankine-Hugoniot
 \begin_inset Formula 
 \begin{equation}
 \left[A^{k}n_{k}w\right]=0.\label{eq:rankine-hugoniot}
@@ -3793,7 +3793,7 @@ key "schwartz1961methodes"
 
 \end_inset
 
-et, lorsque qu'il n'y a pas d'ambiguité, nous poserons aussi
+et, lorsque qu'il n'y a pas d’ambiguïté, nous poserons aussi
 \begin_inset Formula 
 \[
 A^{k}n_{k}=A.
