@@ -3693,7 +3693,15 @@ D=\left(\cup_{i}\partial\Omega_{i}\right)\setminus\partial\Omega.
 \begin_inset Formula $"L"$
 \end_inset
 
- le côté de 
+ (comme 
+\begin_inset Quotes fld
+\end_inset
+
+Left
+\begin_inset Quotes frd
+\end_inset
+
+) le côté de 
 \begin_inset Formula $-n$
 \end_inset
 
@@ -3701,7 +3709,15 @@ D=\left(\cup_{i}\partial\Omega_{i}\right)\setminus\partial\Omega.
 \begin_inset Formula $"R"$
 \end_inset
 
- le côté de 
+ (comme 
+\begin_inset Quotes fld
+\end_inset
+
+Right
+\begin_inset Quotes frd
+\end_inset
+
+) le côté de 
 \begin_inset Formula $n$
 \end_inset
 
