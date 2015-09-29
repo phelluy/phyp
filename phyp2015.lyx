@@ -3842,6 +3842,22 @@ reference "eq:rankine-hugoniot"
 
 \end_inset
 
+Nous introduisons alors la forme bilinéaire 
+\begin_inset Formula $B$
+\end_inset
+
+ sur 
+\begin_inset Formula $E\times E$
+\end_inset
+
+ définie par
+\begin_inset Formula 
+\[
+B(w,\psi)=\left\langle Lw,\psi\right\rangle +\left[A^{-}(w_{R}-w_{L}),\psi_{L}\right]+\left[A^{+}(w_{R}-w_{L}),\psi_{R}\right]+\left(Mw,\psi\right)
+\]
+
+\end_inset
+
 
 \end_layout
 
