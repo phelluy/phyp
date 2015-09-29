@@ -79,7 +79,7 @@ figs-within-sections
 \begin_body
 
 \begin_layout Title
-Introduction à la théorie et l'approximation des sytèmes hyperboliques
+Introduction à la théorie et l'approximation des systèmes hyperboliques
 \end_layout
 
 \begin_layout Author
@@ -3443,15 +3443,30 @@ Généralités
 \begin_layout Standard
 Nous allons maintenant présenter une méthode d'approximation de type Galerkin-Di
 scontinu.
- Il s'agit d'approcher les solutions de
+ Nous considérons l'opérateur différentiel
 \begin_inset Formula 
-\begin{equation}
-\partial_{t}w+Lw=0,\quad L=A^{k}\partial_{k},\label{eq:systtoapprox}
-\end{equation}
+\[
+L=A^{k}\partial_{k}.
+\]
 
 \end_inset
 
-avec des conditions aux limites maximales positives sur le bord de 
+Il s'agit alors d'approcher les solutions de
+\begin_inset Formula 
+\begin{gather}
+\begin{split}\partial_{t}w+Lw=0\quad\text{dans }\Omega,\\
+Mw=0\quad\text{sur }\partial\Omega.
+\end{split}
+\label{eq:systtoapprox}
+\end{gather}
+
+\end_inset
+
+avec des conditions aux limites 
+\begin_inset Formula $V(x)=\ker M(x)$
+\end_inset
+
+ maximales positives sur le bord de 
 \begin_inset Formula $\Omega$
 \end_inset
 
@@ -3868,8 +3883,370 @@ Nous introduisons alors la forme bilinéaire
 
  définie par
 \begin_inset Formula 
+\begin{equation}
+B(w,\psi)=\left\langle Lw,\psi\right\rangle +\left[A^{-}(w_{R}-w_{L}),\psi_{L}\right]+\left[A^{+}(w_{R}-w_{L}),\psi_{R}\right]+\left(Mw,\psi\right).\label{eq:b_w_psi}
+\end{equation}
+
+\end_inset
+
+Avec ces notations, nous pouvons énoncer le théorème suivant:
+\end_layout
+
+\begin_layout Theorem
+Soit 
+\begin_inset Formula $w$
+\end_inset
+
+ un élément de 
+\begin_inset Formula $C^{1}([0,T],E)$
+\end_inset
+
+.
+ Soit 
+\begin_inset Formula $B$
+\end_inset
+
+ la forme bilinéaire sur 
+\begin_inset Formula $E$
+\end_inset
+
+ définie par (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi"
+
+\end_inset
+
+).
+ Alors 
+\begin_inset Formula $w$
+\end_inset
+
+ est solution faible de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:systtoapprox"
+
+\end_inset
+
+) ssi pour tout 
+\begin_inset Formula $\psi$
+\end_inset
+
+ élément de 
+\begin_inset Formula $E$
+\end_inset
+
+ et pour tout 
+\begin_inset Formula $t\in[0,T]$
+\end_inset
+
+
+\begin_inset Formula 
 \[
-B(w,\psi)=\left\langle Lw,\psi\right\rangle +\left[A^{-}(w_{R}-w_{L}),\psi_{L}\right]+\left[A^{+}(w_{R}-w_{L}),\psi_{R}\right]+\left(Mw,\psi\right)
+\left\langle \partial_{t}w(\cdot,t),\psi(\cdot)\right\rangle +B(w(\cdot,t),\psi(\cdot))=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Nous aurions aussi pu considérer la forme bilinéaire
+\begin_inset Formula 
+\begin{equation}
+B(w,\psi)=\left\langle Lw,\psi\right\rangle +\left[A(w_{R}-w_{L}),\frac{\psi_{L}+\psi_{R}}{2}\right]+\left(Mw,\psi\right),\label{eq:b_w_psi_centree}
+\end{equation}
+
+\end_inset
+
+et énoncer le même résultat.
+ Le schéma associé à la forme (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi"
+
+\end_inset
+
+) est appelé schéma de Galerkin-discontinu décentré, tandis que le schéma
+ associé à (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi_centree"
+
+\end_inset
+
+) est le schéma centré.
+ Le schéma décentré possède des propriétés de stabilité et de convergence
+ plus fortes que le schéma centré, ce qui justifie le choix de la décomposition
+ 
+\begin_inset Formula $A=A^{+}+A^{-}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Nous allons détailler quelques propriétés de la forme bilinéaire 
+\begin_inset Formula $B$
+\end_inset
+
+ du schéma décentré (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi"
+
+\end_inset
+
+).
+ Commençons par un lemme très utile.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:green_aknk"
+
+\end_inset
+
+Pour tout 
+\begin_inset Formula $w,\psi$
+\end_inset
+
+ dans 
+\begin_inset Formula $E$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\left\langle Lw,\psi\right\rangle =-\left\langle w,L\psi\right\rangle +\left[Aw_{L},\psi_{L}\right]-\left[Aw_{R},\psi_{R}\right]+\left(Aw,\psi\right).\label{eq:part_int}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+L'application de la formule de Green sur l'ouvert 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ conduit à
+\begin_inset Formula 
+\begin{equation}
+\int_{\Omega_{i}}A^{k}\partial_{k}w\cdot\psi=-\int_{\Omega_{i}}A^{k}\partial_{k}\psi\cdot w+\int_{\partial\Omega_{i}}A^{k}n_{k}w\cdot\psi.\label{eq:loc_part_int}
+\end{equation}
+
+\end_inset
+
+Nous sommons ensuite cette relation sur tous les ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+.
+ En remarquant que 
+\begin_inset Formula $\cup_{i}\partial\Omega_{i}=D\cup\partial\Omega$
+\end_inset
+
+, et réorganisant les termes de bord, nous obtenons (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:part_int"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+La proposition suivante est une réécriture de la forme bilinéaire 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Pour tout 
+\begin_inset Formula $w,\psi$
+\end_inset
+
+ dans 
+\begin_inset Formula $E$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline}
+B(w,\psi)=-\left\langle w,L\psi\right\rangle +\left[A^{-}w_{R}+A^{+}w_{L},\psi_{L}\right]\\
++\left[-A^{+}w_{L}-A^{-}w_{R},\psi_{R}\right]+\left((M+A)w,\psi\right).\label{eq:b_w_psi_2}
+\end{multline}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+C'est une conséquence immédiate du lemme (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:green_aknk"
+
+\end_inset
+
+) et du fait que 
+\begin_inset Formula $A=A^{+}+A^{-}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De même que l'opérateur 
+\begin_inset Formula $L$
+\end_inset
+
+ est monotone, nous allons démontrer une propriété analogue pour la forme
+ bilinéaire 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Pour tout 
+\begin_inset Formula $w$
+\end_inset
+
+ dans 
+\begin_inset Formula $E$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+B(w,w)=\left[\left|A\right|(w_{R}-w_{L}),w_{R}-w_{L}\right]+\left(\left(M+\frac{1}{2}A\right)w,w\right).\label{eq:bpositif}
+\end{equation}
+
+\end_inset
+
+De plus si 
+\begin_inset Formula $M+\frac{1}{2}A$
+\end_inset
+
+ est une matrice positive alors
+\begin_inset Formula 
+\[
+B(w,w)\geq0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Nous posons 
+\begin_inset Formula $\psi=w$
+\end_inset
+
+, et nous effectuons la demi somme de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi"
+
+\end_inset
+
+) et de (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi_2"
+
+\end_inset
+
+).
+ La relation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bpositif"
+
+\end_inset
+
+) découle alors de l'identité 
+\begin_inset Formula $\left|A\right|=A^{+}-A^{-}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+La matrice 
+\begin_inset Formula $\left|A\right|$
+\end_inset
+
+ est (symétrique) positive.
+ Si 
+\begin_inset Formula $M+\frac{1}{2}A$
+\end_inset
+
+ est une matrice positive alors pour tout 
+\begin_inset Formula $w\in E$
+\end_inset
+
+, alors
+\begin_inset Formula 
+\[
+\left(M+\frac{1}{2}A\right)w\cdot w\geq0,
+\]
+
+\end_inset
+
+donc la forme bilinéaire 
+\begin_inset Formula $B$
+\end_inset
+
+ est bien positive sur 
+\begin_inset Formula $E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La forme bilinéaire 
+\begin_inset Formula $B$
+\end_inset
+
+ est positive, mais elle n'est pas symétrique, ce qui ne permet pas de lui
+ appliquer directement l'inégalité de Cauchy-Schwarz.
+ Il est donc utile d'estimer la partie antisymétrique de 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ C'est l'objet du lemme suivant.
+\end_layout
+
+\begin_layout Lemma
+Pour tout 
+\begin_inset Formula $w,\psi$
+\end_inset
+
+ dans 
+\begin_inset Formula $E$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{2}\left(B(w,\psi)-B(\psi,w)\right)=-\left\langle w,L\psi\right\rangle +\left[\frac{1}{2}A(w_{L}+w_{R}),\psi_{L}-\psi_{R}\right]+...
 \]
 
 \end_inset
@@ -3919,10 +4296,6 @@ Transport
 
 \begin_layout Section
 Modèles cinétiques
-\end_layout
-
-\begin_layout Part
-Systèmes non-linéaires (Bopeng Rao)
 \end_layout
 
 \begin_layout Standard
