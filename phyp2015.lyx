@@ -4246,7 +4246,7 @@ Pour tout
 
 \begin_inset Formula 
 \[
-\frac{1}{2}\left(B(w,\psi)-B(\psi,w)\right)=-\left\langle w,L\psi\right\rangle +\left[\frac{1}{2}A(w_{L}+w_{R}),\psi_{L}-\psi_{R}\right]+...
+\frac{1}{2}\left(B(w,\psi)-B(\psi,w)\right)=-\left\langle w,L\psi\right\rangle +\left[\frac{1}{2}A(w_{L}+w_{R}),\psi_{L}-\psi_{R}\right]+\left(\frac{M-M^{T}}{2}w,\psi\right).
 \]
 
 \end_inset
@@ -4256,6 +4256,11 @@ Pour tout
 
 \begin_layout Section
 Convergence de la méthode GD
+\end_layout
+
+\begin_layout Standard
+Nous allons maintenant démontrer un résultat de convergence pour la méthode
+ GD.
 \end_layout
 
 \begin_layout Chapter
