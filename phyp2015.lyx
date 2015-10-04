@@ -3513,6 +3513,30 @@ Pour définir ces espaces, nous considérons donc des ouverts
 \end_layout
 
 \begin_layout Standard
+Une telle décomposition du domaine de calcul 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ est appelé un 
+\shape italic
+maillage
+\shape default
+ de 
+\begin_inset Formula $\Omega.$
+\end_inset
+
+ Les ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ sont appelés les 
+\shape italic
+éléments
+\shape default
+ du maillage.
+\end_layout
+
+\begin_layout Standard
 Soit 
 \begin_inset Formula $k$
 \end_inset
@@ -3548,9 +3572,9 @@ Soit
 
 
 \begin_inset Formula 
-\[
-E=\left\{ w\in H,w\vert_{\Omega_{i}}\in H^{k+1}(\Omega_{i})^{m}\right\} .
-\]
+\begin{equation}
+E=\left\{ w\in H,w\vert_{\Omega_{i}}\in H^{k+1}(\Omega_{i})^{m}\right\} .\label{eq:def_E}
+\end{equation}
 
 \end_inset
 
@@ -4231,7 +4255,7 @@ La forme bilinéaire
 \end_inset
 
 .
- C'est l'objet du lemme suivant.
+ C'est l'objet du lemme suivant:
 \end_layout
 
 \begin_layout Lemma
@@ -4246,7 +4270,33 @@ Pour tout
 
 \begin_inset Formula 
 \[
-\frac{1}{2}\left(B(w,\psi)-B(\psi,w)\right)=-\left\langle w,L\psi\right\rangle +\left[\frac{1}{2}A(w_{L}+w_{R}),\psi_{L}-\psi_{R}\right]+\left(\frac{M-M^{T}}{2}w,\psi\right).
+\frac{1}{2}\left(B(w,\psi)-B(\psi,w)\right)=-\left\langle w,L\psi\right\rangle +\left[\frac{1}{2}A(w_{L}+w_{R}),\psi_{L}-\psi_{R}\right]+\left(\frac{A+M-M^{T}}{2}w,\psi\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Ce résultat se démontre en utilisant les formules (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi"
+
+\end_inset
+
+), (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:b_w_psi_2"
+
+\end_inset
+
+) et la relation
+\begin_inset Formula 
+\[
+Mw\cdot\psi=w\cdot M^{T}\psi.
 \]
 
 \end_inset
@@ -4261,6 +4311,224 @@ Convergence de la méthode GD
 \begin_layout Standard
 Nous allons maintenant démontrer un résultat de convergence pour la méthode
  GD.
+ Nous constatons d'abord que si l'espace 
+\begin_inset Formula $E$
+\end_inset
+
+ est construit sur une décomposition en ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ (voir (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:def_E"
+
+\end_inset
+
+)) et que 
+\begin_inset Formula $w\in E$
+\end_inset
+
+, alors 
+\begin_inset Formula $w$
+\end_inset
+
+ est aussi contenu dans tout espace 
+\begin_inset Formula $E'$
+\end_inset
+
+ qui serait construit à partir d'un redécoupage de chaque ouvert 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+.
+ Plus précisément, nous considérons des ouverts 
+\begin_inset Formula $\omega_{ij}$
+\end_inset
+
+ tels que:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\cup_{j}\overline{\omega_{ij}}=\overline{\Omega_{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $j\neq l\Rightarrow\omega_{ij}\cap\omega_{il}=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nous définissons
+\begin_inset Formula 
+\[
+E'=\left\{ w\in H,\forall i,j,w\vert_{\omega_{ij}}\in H^{k+1}(\omega_{ij})^{m}\right\} .
+\]
+
+\end_inset
+
+Alors, 
+\begin_inset Formula $E\subset E'$
+\end_inset
+
+.
+ Avec cette construction, nous pouvons toujours nous ramener au cas où les
+ ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ sont aussi petits que nécessaire.
+ Nous notons alors 
+\begin_inset Formula $h$
+\end_inset
+
+ le plus grand diamètre des ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+h=\max_{i}\text{diam}\Omega_{i},
+\]
+
+\end_inset
+
+et nous pouvons envisager de faire tendre 
+\begin_inset Formula $h$
+\end_inset
+
+ vers 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ L'espace d'approximation est noté 
+\begin_inset Formula $E_{h}$
+\end_inset
+
+.
+ C'est l'ensemble des fonctions vectorielles sur 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ dont la restriction à chaque 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+ est polynomiale de degré inférieur ou égal à 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+E_{h}=\left\{ w\in H,\quad\forall i,\quad w\vert_{\Omega_{i}}\text{ polynôme de d°}\leq k\right\} .
+\]
+
+\end_inset
+
+L'esapce 
+\begin_inset Formula $E_{h}$
+\end_inset
+
+ est un sous-espace vectoriel de dimension finie de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Notons 
+\begin_inset Formula $\pi$
+\end_inset
+
+ l'opérateur de projection sur 
+\begin_inset Formula $E_{h}$
+\end_inset
+
+ au sens de la norme de 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Cette projection est définie de manière unique par la propriété
+\begin_inset Formula 
+\[
+\forall\psi_{h}\in E_{h},\quad\left\langle \pi w,\psi_{h}\right\rangle =\left\langle w,\psi_{h}\right\rangle .
+\]
+
+\end_inset
+
+Nous disposons alors des estimations suivantes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "raviart1983introduction"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Il existe une constante 
+\begin_inset Formula $C>0$
+\end_inset
+
+, indépendante de 
+\begin_inset Formula $h$
+\end_inset
+
+, telle que pour tout 
+\begin_inset Formula $w$
+\end_inset
+
+ dans 
+\begin_inset Formula $E$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\Vert w-\pi w\right\Vert _{H}\leq Ch^{k+1}\left\Vert w\right\Vert _{E}
+\]
+
+\end_inset
+
+et
+\begin_inset Formula 
+\[
+\left\Vert w-\pi w\right\Vert _{L^{2}(D)}\leq Ch^{k+1/2}\left\Vert w\right\Vert _{E}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dans ces estimations, pour être tout à fait précis, il faudrait préciser
+ que la constante 
+\begin_inset Formula $C$
+\end_inset
+
+ dépend de la 
+\begin_inset Quotes fld
+\end_inset
+
+forme
+\begin_inset Quotes frd
+\end_inset
+
+ des ouverts 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Chapter
